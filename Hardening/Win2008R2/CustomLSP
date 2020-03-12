@@ -1,6 +1,14 @@
 Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name HideIcons -Value 1
 
+#Import AD Module
+Import-Module ActiveDirectory
+
+#Store password secure in memory
+$newPass=Read-Host "Enter the new user password" -AsSecureString
+
 #Change Admin Password 
+Set-ADAccountPassword jkelly -NewPassword $newPass
+
 #Disable IPv6
 #Harden RDP (Ensure Network Level Authentication)
 #Disable SMB1
