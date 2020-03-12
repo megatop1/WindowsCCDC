@@ -7,7 +7,7 @@ Import-Module ActiveDirectory
 $newPass=Read-Host "Enter the new user password" -AsSecureString
 
 #Change Admin Password 
-Set-ADAccountPassword jkelly -NewPassword $newPass
+Set-ADAccountPassword Administrator -NewPassword $newPass
 
 #Disable IPv6
 #Harden RDP (Ensure Network Level Authentication)
