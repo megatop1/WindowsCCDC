@@ -10,7 +10,14 @@ $newPass=Read-Host "Enter the new user password" -AsSecureString
 Set-ADAccountPassword Administrator -NewPassword $newPass
 
 #Disable IPv6
-#Harden RDP (Ensure Network Level Authentication)
+reg add hklm\system\currentcontrolset\services\tcpip6\parameters /v DisabledComponents /t REG_DWORD /d 0xFFFFFFFF
+
+#Allow RDP 
+Set-ItemProperty ‘HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\‘ -Name “fDenyTSConnections” -Value 0
+
+#Force network level authentication (Harden RDP) 
+Set-ItemProperty ‘HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\‘ -Name “UserAuthentication” -Value 1
+
 #Disable SMB1
 #Enable SMB2
 #Disable powershell for regular users 
