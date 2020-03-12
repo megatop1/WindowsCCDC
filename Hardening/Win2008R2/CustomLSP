@@ -1,1 +1,16 @@
 Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name HideIcons -Value 1
+
+#Change Admin Password 
+#Disable IPv6
+#Harden RDP (Ensure Network Level Authentication)
+#Disable SMB1
+#Enable SMB2
+#Disable powershell for regular users 
+#Disable CMD for regular users 
+#Disable local administrator
+#Disable guest account
+#Disable access to registry and editing reg keys 
+#Disable Stickey Keys
+#Disable on screen keyboard
+#Disallow creation of new users 
+#Disallow users being allowed to RDP 
