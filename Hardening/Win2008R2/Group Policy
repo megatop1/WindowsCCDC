@@ -1,0 +1,2 @@
+New-GPO -Name = “test” | setgppermissions -permissionslevel gpoedit -targetname “Domain Users” -targettype group
+Set-GPPrefRegistryValue -name "test -Enabled "HKCU:\Software\Policies\Microsoft\Windows\System\ -name DisableCMD -Value 2
