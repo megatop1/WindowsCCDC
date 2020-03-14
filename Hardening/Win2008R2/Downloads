@@ -1,8 +1,6 @@
-#Get the chocolatey repo
-Register-PackageSource -Name chocolatey -ProviderName Chocolatey -Location http://chocolatey.org/api/v2/
-
-#Download Sysinternals Repo 
-Find-Package -Name Sysinternals | Install-Package
+#Download Sysinternals (MUST BE RUNNING PS AD ADMIN)
+(New-Object System.Net.WebClient).DownloadFile("https://download.sysinternals.com/files/SysinternalsSuite.zip", "SysinternalsSuite.zip")
+./SysinternalsSuite.zip /norestart /passive 
 
 #Download AV 
 find-package microsoftsecurityessentials //look for the package
