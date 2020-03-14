@@ -24,4 +24,5 @@
 [Io.Compression.ZipFile]::ExtractToDirectory("wmf5.1.zip", ".")
 
 #Download LockHunter
-choco install lockhunter
+(New-Object System.Net.WebClient).DownloadFile("https://www.filecroco.com/download-file/download-lockhunter/8286/574/", "lockhunter.exe")
+./lockhunter.exe /norestart /passive 
