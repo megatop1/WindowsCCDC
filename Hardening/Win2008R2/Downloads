@@ -1,4 +1,4 @@
-#Download Sysinternals (MUST BE RUNNING PS AD ADMIN)
+#Download Sysinternals (do NOT run as admin)
 (New-Object System.Net.WebClient).DownloadFile("https://download.sysinternals.com/files/SysinternalsSuite.zip", "SysinternalsSuite.zip")
 ./SysinternalsSuite.zip /norestart /passive 
 
