@@ -1,2 +1,18 @@
 New-GPO -Name = “test” | setgppermissions -permissionslevel gpoedit -targetname “Domain Users” -targettype group
 Set-GPPrefRegistryValue -name "test -Enabled "HKCU:\Software\Policies\Microsoft\Windows\System\ -name DisableCMD -Value 2
+
+#Disable powershell for regular users 
+
+#Disable CMD for regular users 
+#Disable local administrator
+#Disable guest account
+#Disable access to registry and editing reg keys 
+
+#Disable Stickey Keys
+Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\StickeyKeys" -Name Flags -Value Flags 506
+Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\Keyboard Response" -Name Flags -Value Flags 122
+Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\ToggleKeys" -Name Flags -Value Flags 58
+
+#Disable on screen keyboard
+#Disallow creation of new users 
+#Disallow users being allowed to RDP 
