@@ -7,8 +7,9 @@ Set-GPPrefRegistryValue -name "test -Enabled "HKCU:\Software\Policies\Microsoft\
 #Disable powershell for regular users 
 
 #Disable CMD for regular users 
-New-GPO -Name “cmdperms” | setgppermissions -permissionslevel gpoedit -targetname “Domain Users” -targettype group
-Set-GPPrefRegistryValue -name "cmdperms" -Enabled "HKCU:\Software\Policies\Microsoft\Windows\System\ -name DisableCMD -Value 2
+New-GPO -Name “cmdperms” 
+Set-GPPermissions -name "cmdperms" -PermissionLevel gpoedit -targetname “Domain Users” -targettype group
+Set-GPRegistryValue -Name "cmdperms" -Key "HKCU\Software\Policies\Microsoft\Windows\System" -ValueName "disablecmd" -Type DWORD -Value 0
 
 #Disable local administrator
 #Disable guest account
