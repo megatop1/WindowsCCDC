@@ -11,6 +11,7 @@ import-module grouppolicy
 New-GPO -name "DisableCMD"
 
 Set-GPRegistryValue -name "DisableCMD" -key "HKCU\Software\Policies\Microsoft\Windows\System" -ValueName "Prevent access to the command prompt" -type Dword -value 00000002
+Set-GPLink -name "DisableCMD" 
 
 
 #Disable local administrator
