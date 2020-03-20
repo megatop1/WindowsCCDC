@@ -19,6 +19,12 @@ New-GPLink -name "DisableRegAccess" -Target "dc=rj,dc=com" -LinkEnabled Yes -Enf
 #Disable LLMNR
 New-GPO -name "DisableLLMNR" -domain "rj.com"
 Set-GPRegistryValue -name "DisableLLMNR" -key "HKLM\Software\policies\Microsoft\Windows NT\DNSClient" -ValueName "EnableMulticast" -type Dword -value 0000000
+New-GPLink -name "DisableLLMNR" -Target "dc=rj,dc=com" -LinkEnabled Yes -Enforced Yes
+
+#Disable RDP (CHECK IF RDP IS SCORED?!?!?!)
+New-GPO -name "DisableRDP" -domain "rj.com"
+Set-GPRegistryValue -name "DisableRDP" -key "HKLM\Software\policies\Microsoft\Windows NT\Terminal Services" -ValueName "fDenyTSConnections" -type Dword -value 00000001
+New-GPLink -name "DisableLLMNR" -Target "dc=rj,dc=com" -LinkEnabled Yes -Enforced Yes
 
 
 #Disable Stickey Keys
