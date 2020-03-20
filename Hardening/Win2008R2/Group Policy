@@ -11,19 +11,6 @@ New-GPO -name "DisableCMD" -domain "rj.com"
 Set-GPRegistryValue -name "DisableCMD" -key "HKCU\Software\Policies\Microsoft\Windows\System" -ValueName "DisableCMD" -type Dword -value 00000002
 New-GPLink -name "DisableCMD" -Target "dc=rj,dc=com" -LinkEnabled Yes -Enforced Yes
 
-
-#Disable local administrator. The below assumes you made a bat file with the following inside: net user administrator /active:no
-New-GPO -name "DisableLocalAdmin" -domain "rj.com"
-Set-GPRegistryValue -name "DisableLocalAdmin" -key "HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce" -ValueName "DisableLocalAdmin" -type string -value C:\Users\Administrator\Documents\disableAdmin.bat 
-New-GPLink -name "DisableLocalAdmin" -Target "dc=rj,dc=com" -LinkEnabled Yes -Enforced Yes
-
-#Disable guest account: The below assumes you made a bat file with the following inside: net user guest /active:no
-New-GPO -name "DisableGuest" -domain "rj.com"
-Set-GPRegistryValue -name "DisableGuest" -key "HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce" -ValueName "DisableGuest" -type string -value C:\Users\Administrator\Documents\disableGuest.bat 
-New-GPLink -name "DisableLocalAdmin" -Target "dc=rj,dc=com" -LinkEnabled Yes -Enforced Yes
-
-
-
 #Disable access to registry and editing reg keys 
 
 #Disable Stickey Keys
@@ -34,3 +21,13 @@ Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\ToggleKeys" -Name Flag
 #Disable on screen keyboard
 #Disallow creation of new users 
 #Disallow users being allowed to RDP 
+
+#Disable local administrator. The below assumes you made a bat file with the following inside: net user administrator /active:no
+New-GPO -name "DisableLocalAdmin" -domain "rj.com"
+Set-GPRegistryValue -name "DisableLocalAdmin" -key "HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce" -ValueName "DisableLocalAdmin" -type string -value C:\Users\Administrator\Documents\disableAdmin.bat 
+New-GPLink -name "DisableLocalAdmin" -Target "dc=rj,dc=com" -LinkEnabled Yes -Enforced Yes
+
+#Disable guest account: The below assumes you made a bat file with the following inside: net user guest /active:no
+New-GPO -name "DisableGuest" -domain "rj.com"
+Set-GPRegistryValue -name "DisableGuest" -key "HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce" -ValueName "DisableGuest" -type string -value C:\Users\Administrator\Documents\disableGuest.bat 
+New-GPLink -name "DisableLocalAdmin" -Target "dc=rj,dc=com" -LinkEnabled Yes -Enforced Yes
