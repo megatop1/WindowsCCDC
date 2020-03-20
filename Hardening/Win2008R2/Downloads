@@ -10,6 +10,9 @@
 (New-Object System.Net.WebClient).DownloadFile("https://www.filecroco.com/download-file/download-lockhunter/8286/574/", "lockhunter.exe")
 ./lockhunter.exe /norestart /passive 
 
+#Download Google Chrome
+(New-Object System.Net.WebClient).DownloadFile("", "chromeinstall.exe")
+
 #Download Registry Policy Viewer
 (New-Object System.Net.WebClient).DownloadFile("https://sdmsoftware.com/?smd_process_download=1&download_id=14958", "regviewer.exe")
 
