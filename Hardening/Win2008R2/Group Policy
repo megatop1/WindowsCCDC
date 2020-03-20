@@ -16,6 +16,10 @@ New-GPO -name "DisableRegAccess" -domain "rj.com"
 Set-GPRegistryValue -name "DisableRegAccess" -key "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" -ValueName "DisableRegistryTools" -type Dword -value 00000002
 New-GPLink -name "DisableRegAccess" -Target "dc=rj,dc=com" -LinkEnabled Yes -Enforced Yes
 
+#Disable LLMNR
+New-GPO -name "DisableLLMNR" -domain "rj.com"
+Set-GPRegistryValue -name "DisableLLMNR" -key "HKLM\Software\policies\Microsoft\Windows NT\DNSClient" -ValueName "EnableMulticast" -type Dword -value 0000000
+
 
 #Disable Stickey Keys
 Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\StickeyKeys" -Name Flags -Value Flags 506
