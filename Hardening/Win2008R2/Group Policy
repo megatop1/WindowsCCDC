@@ -1,15 +1,8 @@
 Import-Module ActiveDirectory
 Import-Module GroupPolicy 
 
-New-GPO -Name = “test” | setgppermissions -permissionslevel gpoedit -targetname “Domain Users” -targettype group
-Set-GPPrefRegistryValue -name "test -Enabled "HKCU:\Software\Policies\Microsoft\Windows\System\ -name DisableCMD -Value 2
-
-#Disable powershell for regular users 
-
 #Disable CMD for regular users 
-import-module grouppolicy
 New-GPO -name "DisableCMD" -domain "rj.com"
-
 Set-GPRegistryValue -name "DisableCMD" -key "HKCU\Software\Policies\Microsoft\Windows\System" -ValueName "DisableCMD" -type Dword -value 00000002
 New-GPLink -name "DisableCMD" -Target "dc=rj,dc=com" -LinkEnabled Yes -Enforced Yes
 
