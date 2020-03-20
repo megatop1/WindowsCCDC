@@ -33,7 +33,7 @@ New-GPLink -name "DisableRestarts" -Target "dc=rj,dc=com" -LinkEnabled Yes -Enfo
 
 #Prohibit new task creation
 New-GPO -name "DisableTaskCreation" -domain "rj.com"
-Set-GPRegistryValue -name "DisableTaskCreation" -key "HKLM\Software\Policies\Microsoft\Windows\Task Scheduler5.0" -ValueName "Task Creation" -type Dword -value 00000001
+Set-GPRegistryValue -name "DisableTaskCreation" -key "HKLM\System\CurrentControlSet\Services\Schedule" -ValueName "start" -type Dword -value 00000004
 New-GPLink -name "DisableTaskCreation" -Target "dc=rj,dc=com" -LinkEnabled Yes -Enforced Yes
 
 #Disable Stickey Keys
