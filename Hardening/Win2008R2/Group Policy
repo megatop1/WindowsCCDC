@@ -1,6 +1,11 @@
 Import-Module ActiveDirectory
 Import-Module GroupPolicy 
 
+#The below is the name of the domain, rj, com
+$domainName = 
+$beforeDot = 
+$AfterDot =
+
 #Disable CMD for regular users 
 New-GPO -name "DisableCMD" -domain "rj.com"
 Set-GPRegistryValue -name "DisableCMD" -key "HKCU\Software\Policies\Microsoft\Windows\System" -ValueName "DisableCMD" -type Dword -value 00000002
