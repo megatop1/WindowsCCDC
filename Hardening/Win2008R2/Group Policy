@@ -14,7 +14,7 @@ New-GPLink -name "DisableCMD" -Target "dc=rj,dc=com" -LinkEnabled Yes -Enforced 
 #Disable access to registry and editing reg keys 
 New-GPO -name "DisableRegAccess" -domain "rj.com"
 Set-GPRegistryValue -name "DisableRegAccess" -key "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" -ValueName "DisableRegAccess" -type Dword -value 1
-
+New-GPLink -name "DisableRegAccess" -Target "dc=rj,dc=com" -LinkEnabled Yes -Enforced Yes
 
 
 #Disable Stickey Keys
