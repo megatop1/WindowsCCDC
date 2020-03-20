@@ -10,6 +10,9 @@
 (New-Object System.Net.WebClient).DownloadFile("https://www.filecroco.com/download-file/download-lockhunter/8286/574/", "lockhunter.exe")
 ./lockhunter.exe /norestart /passive 
 
+#Download Registry Policy Viewer
+(New-Object System.Net.WebClient).DownloadFile("https://sdmsoftware.com/?smd_process_download=1&download_id=14958", "regviewer.exe")
+
 #Update to powershell 5.1
 
 # Download the .NET Framework 4.5.2 
