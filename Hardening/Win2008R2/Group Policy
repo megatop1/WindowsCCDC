@@ -36,10 +36,14 @@ New-GPO -name "DisableTaskCreation" -domain "rj.com"
 Set-GPRegistryValue -name "DisableTaskCreation" -key "HKLM\Software\Policies\Microsoft\Windows\Task Scheduler5.0" -ValueName "Execution" -type Dword -value 00000004
 New-GPLink -name "DisableTaskCreation" -Target "dc=rj,dc=com" -LinkEnabled Yes
 
+#Account Lockout Policy
+New-GPO -name "AccountLockout" -domain "rj.com"
+Set-GPRegistryValue -name "AccountLockout" -key "HKLM\Software\Policies\Microsoft\Windows\Task Scheduler5.0" -ValueName "Execution" -type Dword -value 00000004
+
 #Disable Stickey Keys
-Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\StickeyKeys" -Name Flags -Value Flags 506
-Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\Keyboard Response" -Name Flags -Value Flags 122
-Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\ToggleKeys" -Name Flags -Value Flags 58
+Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\StickyKeys" -Name Flags -Value 506
+Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\Keyboard Response" -Name Flags -Value 122
+Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\ToggleKeys" -Name Flags -Value 58
 
 #Disable on screen keyboard
 #Disallow creation of new users 
