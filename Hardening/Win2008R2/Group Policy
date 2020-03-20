@@ -12,6 +12,10 @@ Set-GPRegistryValue -name "DisableCMD" -key "HKCU\Software\Policies\Microsoft\Wi
 New-GPLink -name "DisableCMD" -Target "dc=rj,dc=com" -LinkEnabled Yes -Enforced Yes
 
 #Disable access to registry and editing reg keys 
+New-GPO -name "DisableRegAccess" -domain "rj.com"
+Set-GPRegistryValue -name "DisableRegAccess" -key "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" -ValueName "DisableRegAccess" -type Dword -value 1
+
+
 
 #Disable Stickey Keys
 Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\StickeyKeys" -Name Flags -Value Flags 506
