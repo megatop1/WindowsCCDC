@@ -31,7 +31,7 @@ New-GPO -name "DisableRestarts" -domain "rj.com"
 Set-GPRegistryValue -name "DisableRestarts" -key "HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate\AU" -ValueName "NoAutoRebootWithLoggedOnUsers" -type Dword -value 00000001
 New-GPLink -name "DisableRestarts" -Target "dc=rj,dc=com" -LinkEnabled Yes -Enforced Yes
 
-#Prohibit new task creation
+#Prohibit tasks being started\stopped
 New-GPO -name "DisableTaskCreation" -domain "rj.com"
 Set-GPRegistryValue -name "DisableTaskCreation" -key "HKLM\Software\Policies\Microsoft\Windows\Task Scheduler5.0" -ValueName "Execution" -type Dword -value 00000004
 New-GPLink -name "DisableTaskCreation" -Target "dc=rj,dc=com" -LinkEnabled Yes -Enforced Yes
