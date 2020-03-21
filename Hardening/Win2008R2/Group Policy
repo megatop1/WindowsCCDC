@@ -36,5 +36,10 @@ New-GPO -name "DisableTaskCreation" -domain "rj.com"
 Set-GPRegistryValue -name "DisableTaskCreation" -key "HKLM\Software\Policies\Microsoft\Windows\Task Scheduler5.0" -ValueName "Execution" -type Dword -value 00000004
 New-GPLink -name "DisableTaskCreation" -Target "dc=rj,dc=com" -LinkEnabled Yes
 
+#PowerShell Execution Policy to local scripts and signed trusted scripts to execute
+New-GPO -name "PowershellExecution" -domain "rj.com"
+Set-GPRegistryValue -name "ExecutionPolicy" -key "HKCU\Software\Policies\Microsoft\Windows\PowerShell" -ValueName "Execution Policy" -type SZ -value RemoteSigned
+New-GPLink -name "PowershellExecution" -Target "dc=rj,dc=com" -LinkEnabled Yes
+
 #Configure APPlocker 
 import-module applocker
