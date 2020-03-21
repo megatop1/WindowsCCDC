@@ -38,7 +38,7 @@ New-GPLink -name "DisableTaskCreation" -Target "dc=rj,dc=com" -LinkEnabled Yes
 
 #PowerShell Execution Policy to local scripts and signed trusted scripts to execute (Currently not working)
 New-GPO -name "PowershellExecution" -domain "rj.com"
-Set-GPRegistryValue -name "PowershellExecution" -key "HKCU\Software\Policies\Microsoft\Windows\PowerShell" -ValueName "Execution Policy" -type string -value RemoteSigned
+Set-GPRegistryValue -name "PowershellExecution" -key "HKCU\Software\Policies\Microsoft\Windows\PowerShell" -ValueName "EnableScripts" -type Dword -value 00000001
 New-GPLink -name "PowershellExecution" -Target "dc=rj,dc=com" -LinkEnabled Yes
 
 #Configure APPlocker 
