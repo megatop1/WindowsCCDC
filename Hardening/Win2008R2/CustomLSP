@@ -38,3 +38,6 @@ Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\ToggleKeys" -Name Flag
 #Disable PSRemoting
 Disable-PSRemoting -Force
 Get-PSSessionConfiguration | Format-Table -Property Name, Permission
+
+#Disable Ease Of Access Center 
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Utilman.exe" /v "Debugger" /t REG_SZ /d "systray.exe" /f
