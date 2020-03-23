@@ -1,3 +1,5 @@
+#Made by RJ Pisciotta. Custom local security policy. Instead of using reg add like most stigs this sets the item property
+
 Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name HideIcons -Value 1
 
 #Import AD Module
