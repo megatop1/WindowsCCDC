@@ -1,3 +1,5 @@
+The below are download commands. Made by RJ, Credit to @TECHTONIC for creating last 3 to update to powershell 5.1. The man's a genius
+
 #Download Sysinternals (do NOT run as admin)
 (New-Object System.Net.WebClient).DownloadFile("https://download.sysinternals.com/files/SysinternalsSuite.zip", "SysinternalsSuite.zip")
 ./SysinternalsSuite.zip /norestart /passive 
