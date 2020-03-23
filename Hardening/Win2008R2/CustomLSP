@@ -1,4 +1,4 @@
-#Made by RJ Pisciotta. Custom local security policy. Instead of using reg add like most stigs this sets the item property
+#Made by RJ Pisciotta. Custom local security policy. Instead of using reg add like most stigs this sets the item property and is less confusing
 
 Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name HideIcons -Value 1
 
