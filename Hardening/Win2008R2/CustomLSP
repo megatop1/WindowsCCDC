@@ -20,8 +20,6 @@ Set-ItemProperty ‘HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\‘ -
 #Force network level authentication (Harden RDP) 
 Set-ItemProperty ‘HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\‘ -Name “UserAuthentication” -Value 1
 
-#Allow RDP Firewall
-REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
 
 #Detect SMB Version (if SMB1 enabled or no value returned or SMB1=1) 
 Get-Item HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters | ForEach-Object {Get-ItemProperty $_.pspath}
@@ -40,6 +38,3 @@ Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\ToggleKeys" -Name Flag
 #Disable PSRemoting
 Disable-PSRemoting -Force
 Get-PSSessionConfiguration | Format-Table -Property Name, Permission
-
-#Disable Ease Of Access Center 
-reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Utilman.exe" /v "Debugger" /t REG_SZ /d "systray.exe" /f
