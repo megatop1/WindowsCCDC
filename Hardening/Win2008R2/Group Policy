@@ -19,26 +19,26 @@ Set-GPRegistryValue -name "DisableRegAccess" -key "HKCU\Software\Microsoft\Windo
 New-GPLink -name "DisableRegAccess" -Target "dc=beforeDot,dc=afterDot" -LinkEnabled Yes 
 
 #Disable LLMNR
-New-GPO -name "DisableLLMNR" -domain "rj.com"
+New-GPO -name "DisableLLMNR" -domain "domainName"
 Set-GPRegistryValue -name "DisableLLMNR" -key "HKLM\Software\Policies\Microsoft\Windows NT\DNSClient" -ValueName "EnableMulticast" -type Dword -value 0000000
 New-GPLink -name "DisableLLMNR" -Target "dc=beforeDot,dc=afterDot" -LinkEnabled Yes
 
 #Disable RDP (CHECK IF RDP IS SCORED?!?!?!)
-New-GPO -name "DisableRDP" -domain "rj.com"
+New-GPO -name "DisableRDP" -domain "domainName"
 Set-GPRegistryValue -name "DisableRDP" -key "HKLM\Software\Policies\Microsoft\Windows NT\Terminal Services" -ValueName "fDenyTSConnections" -type Dword -value 00000001
 New-GPLink -name "DisableLLMNR" -Target "dc=beforeDot,dc=afterDot" -LinkEnabled Yes
 
 #Disable forced system restarts after updates
-New-GPO -name "DisableRestarts" -domain "rj.com"
+New-GPO -name "DisableRestarts" -domain "domainName"
 Set-GPRegistryValue -name "DisableRestarts" -key "HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate\AU" -ValueName "NoAutoRebootWithLoggedOnUsers" -type Dword -value 00000001
 New-GPLink -name "DisableRestarts" -Target "dc=beforeDot,dc=afterDot" -LinkEnabled Yes
 
 #Prohibit tasks being started\stopped
-New-GPO -name "DisableTaskCreation" -domain "rj.com"
+New-GPO -name "DisableTaskCreation" -domain "domainName"
 Set-GPRegistryValue -name "DisableTaskCreation" -key "HKLM\Software\Policies\Microsoft\Windows\Task Scheduler5.0" -ValueName "Execution" -type Dword -value 00000004
 New-GPLink -name "DisableTaskCreation" -Target "dc=beforeDot,dc=afterDot" -LinkEnabled Yes
 
 #PowerShell Execution Policy to local scripts and signed trusted scripts to execute (Currently not working)
-New-GPO -name "PowershellExecution" -domain "rj.com"
+New-GPO -name "PowershellExecution" -domain "domainName"
 Set-GPRegistryValue -name "PowershellExecution" -key "HKCU\Software\Policies\Microsoft\Windows\PowerShell" -ValueName "EnableScripts" -type Dword -value 00000001
 New-GPLink -name "PowershellExecution" -Target "dc=beforeDot,dc=afterDot" -LinkEnabled Yes
