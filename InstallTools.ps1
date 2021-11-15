@@ -18,18 +18,8 @@ The below are download commands. Made by RJ, Credit to @TECHTONIC for creating l
 #Download Registry Policy Viewer
 (New-Object System.Net.WebClient).DownloadFile("https://sdmsoftware.com/?smd_process_download=1&download_id=14958", "regviewer.exe")
 
-#Update to powershell 5.1
+#Download CMDWatcher
+(New-Object System.Net.WebClient).DownloadFile("https://www.kahusecurity.com/tools/CMDWatcher_v0.3.7z", "cmdwatcher.7z")
 
-# Download the .NET Framework 4.5.2 
-(New-Object System.Net.WebClient).DownloadFile("https://download.microsoft.com/download/E/2/1/E21644B5-2DF2-47C2-91BD-63C560427900/NDP452-KB2901907-x86-x64-AllOS-ENU.exe", "dotnet4.5.2.exe")
+#Download 7z
 
-./dotnet4.5.2.exe /norestart /passive 
-
-# Download Windows Management Framework 5.1 as a ZIP file
-(New-Object System.Net.WebClient).DownloadFile("https://download.microsoft.com/download/6/F/5/6F5FF66C-6775-42B0-86C4-47D41F2DA187/Win7AndW2K8R2-KB3191566-x64.zip", "wmf5.1.zip")
-
-
-# Shamelessly stolen...
-
-[Reflection.Assembly]::LoadWithPartialName("System.IO.Compression.Filesystem")
-[Io.Compression.ZipFile]::ExtractToDirectory("wmf5.1.zip", ".")
