@@ -67,3 +67,15 @@ New-GPLink -name "PowershellExecution" -Target "dc=beforeDot,dc=afterDot" -LinkE
 #Disable the guest account 
 
 #Configure Deny log on locally and Allow log on locally 
+
+#Rename the Local Administrator account
+
+#Secure Domain Administrator accounts (prevent domain administrators from logging on to lower privileged workstations)
+
+#Stop programs from running in certain folders Temp folder(C:\Windows\temp) and %APPDATA%
+
+#Account policies (Password policies and Account lockout policies)
+
+#Local Policies - User rights assingnment:: 1. Forced shutdown from remote system (REMOVE ALL), 2. Allow logon Locally -> Administrators
+
+#Security Options
