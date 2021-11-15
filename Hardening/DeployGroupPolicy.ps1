@@ -24,9 +24,9 @@ Set-GPRegistryValue -name "DisableLLMNR" -key "HKLM\Software\Policies\Microsoft\
 New-GPLink -name "DisableLLMNR" -Target "dc=beforeDot,dc=afterDot" -LinkEnabled Yes
 
 #Disable RDP (CHECK IF RDP IS SCORED?!?!?!)
-New-GPO -name "DisableRDP" -domain "domainName"
-Set-GPRegistryValue -name "DisableRDP" -key "HKLM\Software\Policies\Microsoft\Windows NT\Terminal Services" -ValueName "fDenyTSConnections" -type Dword -value 00000001
-New-GPLink -name "DisableLLMNR" -Target "dc=beforeDot,dc=afterDot" -LinkEnabled Yes
+#New-GPO -name "DisableRDP" -domain "domainName"
+#Set-GPRegistryValue -name "DisableRDP" -key "HKLM\Software\Policies\Microsoft\Windows NT\Terminal Services" -ValueName "fDenyTSConnections" -type Dword -value 00000001
+#New-GPLink -name "DisableLLMNR" -Target "dc=beforeDot,dc=afterDot" -LinkEnabled Yes
 
 #Disable forced system restarts after updates
 New-GPO -name "DisableRestarts" -domain "domainName"
@@ -42,3 +42,28 @@ New-GPLink -name "DisableTaskCreation" -Target "dc=beforeDot,dc=afterDot" -LinkE
 New-GPO -name "PowershellExecution" -domain "domainName"
 Set-GPRegistryValue -name "PowershellExecution" -key "HKCU\Software\Policies\Microsoft\Windows\PowerShell" -ValueName "EnableScripts" -type Dword -value 00000001
 New-GPLink -name "PowershellExecution" -Target "dc=beforeDot,dc=afterDot" -LinkEnabled Yes
+
+
+#Disable SMB1
+
+#Account Lockout Policy
+
+#Prevent Windows from storing a LAN manager hash 
+
+#Enable NTLM Authentication Audit Logging
+
+#Delete dumped password hashes via group policy
+
+#Harden RDP force network level authentication 
+
+#BLOCK MIMIKATZ by enabling LSA Protection 
+
+#LSA Protection 
+
+#Disable LLMNR
+
+#Prevent task scheduling by blocking AT jobs from any user
+
+#Disable the guest account 
+
+#Configure Deny log on locally and Allow log on locally 
