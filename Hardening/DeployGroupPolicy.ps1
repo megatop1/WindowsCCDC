@@ -79,3 +79,5 @@ New-GPLink -name "PowershellExecution" -Target "dc=beforeDot,dc=afterDot" -LinkE
 #Local Policies - User rights assingnment:: 1. Forced shutdown from remote system (REMOVE ALL), 2. Allow logon Locally -> Administrators
 
 #Security Options
+
+#Disable RPC
