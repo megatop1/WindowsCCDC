@@ -23,3 +23,4 @@ The below are download commands. Made by RJ, Credit to @TECHTONIC for creating l
 
 #Download 7z
 
+(New-Object System.Net.WebClient).DownloadFile("https://", "7z")
