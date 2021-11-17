@@ -11,8 +11,15 @@ $domainArray[0]
 $domainArray[1]
 $domainArray[2]
 
+#Count number of dots (delimiter for string seperation) and store result in variable
+$charCount = ($domainName.ToCharArray() | Where-Object {$_ -eq '.'} | Measure-Object).Count
+
+#If there are 2 words in domain (example, com) then store result in the target
+If ($charCount -eq 1) {'Number of words in domain is: 2'}
+ElseIf ($charCount -eq "2") {'Number of words in domain is: 3'}
+ElseIf ($charCount -eq "3") {'Number of words in domain is: 4'}
+
 #The below is the name of the domain, rj, com
-$domainName = 
 $beforeDot = 
 $afterDot =
 
