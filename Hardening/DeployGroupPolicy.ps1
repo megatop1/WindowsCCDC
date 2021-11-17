@@ -3,6 +3,15 @@
 Import-Module ActiveDirectory
 Import-Module GroupPolicy 
 
+$domainName = Read-Host -Prompt 'Please enter your domain. Ex: example.com or ad.example.com'
+
+#Seperate each . in the domain into its own word. ex: ad.example.com word1=ad word2=example, word3=example
+$Inputstring = "Microsoft-SQL-Server"
+$domainArray = $domainName.Split(".")
+$domainArray[0]
+$domainArray[1]
+$domainArray[2]
+
 #The below is the name of the domain, rj, com
 $domainName = 
 $beforeDot = 
