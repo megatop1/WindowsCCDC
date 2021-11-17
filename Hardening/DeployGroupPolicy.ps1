@@ -7,17 +7,27 @@ $domainName = Read-Host -Prompt 'Please enter your domain. Ex: example.com or ad
 
 #Seperate each . in the domain into its own word. ex: ad.example.com word1=ad word2=example, word3=example
 $domainArray = $domainName.Split(".")
-$domainArray[0]
-$domainArray[1]
-$domainArray[2]
+
 
 #Count number of dots (delimiter for string seperation) and store result in variable
 $charCount = ($domainName.ToCharArray() | Where-Object {$_ -eq '.'} | Measure-Object).Count
 
-#If there are 2 words in domain (example, com) then store result in the target
-If ($charCount -eq 1) {'Number of words in domain is: 2'}
-ElseIf ($charCount -eq "2") {'Number of words in domain is: 3'}
-ElseIf ($charCount -eq "3") {'Number of words in domain is: 4'}
+#Find number of words in domains then store result into target 
+If ($charCount -eq 1) {
+$word1 = $domainArray[0]
+$word2 = $domainArray[1]
+}
+ElseIf ($charCount -eq "2") {
+$word1 = $domainArray[0]
+$word2 = $domainArray[1]
+$word3 = $domainArray[2]
+}
+ElseIf ($charCount -eq "3") {
+$word1 = $domainArray[0]
+$word2 = $domainArray[1]
+$word3 = $domainArray[2]
+$word4 = $domainArray[3]
+}
 
 #The below is the name of the domain, rj, com
 $beforeDot = 
