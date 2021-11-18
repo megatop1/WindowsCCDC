@@ -23,4 +23,4 @@ The below are download commands. Made by RJ, Credit to @TECHTONIC for creating l
 
 #Download 7z
 
-(New-Object System.Net.WebClient).DownloadFile("https://", "7z")
+(New-Object System.Net.WebClient).DownloadFile("https://www.7-zip.org/a/7z1900-x64.exe", "7z")
