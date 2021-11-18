@@ -13,7 +13,7 @@ The below are download commands. Made by RJ, Credit to @TECHTONIC for creating l
 ./lockhunter.exe /norestart /passive 
 
 #Download Google Chrome
-(New-Object System.Net.WebClient).DownloadFile("", "chromeinstall.exe")
+(New-Object System.Net.WebClient).DownloadFile("https://www.google.com/chrome/thank-you.html?brand=NMEO&statcb=1&installdataindex=empty&defaultbrowser=0#", "chromeinstall.exe")
 
 #Download Registry Policy Viewer
 (New-Object System.Net.WebClient).DownloadFile("https://sdmsoftware.com/?smd_process_download=1&download_id=14958", "regviewer.exe")
