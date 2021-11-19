@@ -1,4 +1,4 @@
-Install-WindowsFeature -name AD-Domain-Services
+Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools
 Import-module ADDSDeployment
 Install-ADDSForest -DomainName "cartel.com"
 $DSRMPassword = password1!
