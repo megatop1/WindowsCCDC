@@ -43,7 +43,7 @@ $afterDot =
 #Disable CMD for regular users 
 New-GPO -name "DisableCMD" -domain $domainName
 Set-GPRegistryValue -name "DisableCMD" -key "HKCU\Software\Policies\Microsoft\Windows\System" -ValueName "DisableCMD" -type Dword -value 00000002
-New-GPLink -name "DisableCMD" -Target $target" -LinkEnabled Yes 
+New-GPLink -name "DisableCMD" -Target $target -LinkEnabled Yes 
 
 #Disable access to registry and editing reg keys 
 New-GPO -name "DisableRegAccess" -domain $domainName
