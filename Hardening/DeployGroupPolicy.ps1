@@ -113,3 +113,5 @@ New-GPLink -name "PowershellExecution" -Target $target -LinkEnabled Yes
 #Security Options
 
 #Disable RPC
+
+#Enable SMB Signing
