@@ -106,7 +106,10 @@ New-GPLink -name "PowershellExecution" -Target $target -LinkEnabled Yes
 
 #Stop programs from running in certain folders Temp folder(C:\Windows\temp) and %APPDATA%
 
-#Account policies (Password policies and Account lockout policies)
+#Account policies (Password policies and Account lockout policies) Computer Configuration -> Policies -> Windows Settings -> Security Settings -> Account Policies ->
+    # Password Policy: 
+    # Account Lockout Policy:
+    # Kerberos Policy:
 
 #Local Policies - User rights assingnment:: 1. Forced shutdown from remote system (REMOVE ALL), 2. Allow logon Locally -> Administrators
 
